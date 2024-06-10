@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickQR</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <br>
+    <img id="qrpic" src="cropped_QR.png" alt="QuickQR"/>
+    <h1>Welcome to QuickQR</h1>
+    <h4>A QR code generator that generates QR code for your link.</h3>
+    <div class="main"></div>
+    <form id="qrForm" action="/generate" method="POST">
+        <div class="form-container">
+            <div class="form-link">
+                <label for="link">Enter a link:</label>
+                <input type="url" id="link" name="text" required>
+            </div>
+            <button type="submit">Generate QR code</button>
+        </div>
+    </form>    
+
+    <script>
+        function randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        const STAR_COUNT = 100;
+        let result = "";
+        for(let i = 0; i < STAR_COUNT; i++){
+            result += `${randomNumber(-50, 50)}vw ${randomNumber(-50, 50)}vh ${randomNumber(0, 3)}px ${randomNumber(0, 3)}px #fff,`;
+        }
+        console.log(result.substring(0, result.length - 1));
+    </script>
+</body>
+</html>
